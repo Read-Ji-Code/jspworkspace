@@ -7,6 +7,8 @@ import jakarta.servlet.ServletContext;
 
 public class JDBConnect {
 	private Connection con;
+	
+	
 	public JDBConnect() {
 		try {
 			String driver = "com.mysql.cj.jdbc.Driver";
@@ -40,19 +42,19 @@ public class JDBConnect {
 
 	
 	//세번째 생성자
-	public JDBConnect(ServletContext application) {
-		try {
-			String driver = application.getInitParameter("MySQLDriver");
-			Class.forName(driver);
-			String url = application.getInitParameter("MySQLURL");
-			String id = application.getInitParameter("MySQLID");
-			String pwd = application.getInitParameter("MySQLPwd");
-
-			System.out.println("DB 연결 성공(인수 생성자2)");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+//	public JDBConnect(ServletContext application) {
+//		try {
+//			String driver = application.getInitParameter("MySQLDriver");
+//			Class.forName(driver);
+//			String url = application.getInitParameter("MySQLURL");
+//			String id = application.getInitParameter("MySQLID");
+//			String pwd = application.getInitParameter("MySQLPwd");
+//
+//			System.out.println("DB 연결 성공(인수 생성자2)");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 
 	public void close() {

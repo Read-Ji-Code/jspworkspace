@@ -12,10 +12,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>검증</h2>
+	<h2>데이터 삽입</h2>
 	<%
-	String user_id = request.getParameter("user");
-	String user_pw = request.getParameter("password");
+
+    String dataName = request.getParameter("dataName");
+    String tableName = request.getParameter("tableName");
+    String insertName = request.getParameter("insertName");
+	String valueName = request.getParameter("valueName");
+	
+	
 
 	
 	%>

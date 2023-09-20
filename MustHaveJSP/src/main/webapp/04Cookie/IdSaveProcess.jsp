@@ -14,7 +14,7 @@ String save_check = request.getParameter("save_check");
 		else {
 			CookieManager.deleteCookie(response, "loginId");
 		}
-		JSFunction.alertLocation("로그인에 성공하였음","IdSaveMain.jsp", out);
+		JSFunction.alertLocation("로그인에 성공하였음","InsertProcess.jsp", out);
 	}
 	else {
 		JSFunction.alertBack("로그인에 실패했습니다.", out);
