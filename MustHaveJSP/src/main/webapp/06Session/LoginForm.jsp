@@ -21,6 +21,7 @@
 	<script>
 	function validateForm(form) {
 		if (!form.user_id.value) {
+			alert("아이디를 입력하세요 .");
 			return false;	
 		}
 		if (form.user_pw.value == "") {
@@ -38,8 +39,8 @@
 	<%
 	} else {
 	%>
-	<%= session.getAttribute("UserName") %> 회원님, 로그인하셨습니다.<br/>
-	<a href="Logout.jsp">[로그아웃]</a>
+		<%= session.getAttribute("UserName") %> 회원님, 로그인하셨습니다.<br/>
+		<a href="Logout.jsp">[로그아웃]</a>
 	 <%
 	}
 	 %>

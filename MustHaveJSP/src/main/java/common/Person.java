@@ -3,7 +3,7 @@ package common;
 public class Person {
 	private String name;
 	private int age;
-	
+	//private String job;
 	public Person() {}
 	
 	public Person(String name, int age) {
