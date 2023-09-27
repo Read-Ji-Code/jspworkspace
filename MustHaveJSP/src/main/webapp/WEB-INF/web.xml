@@ -30,7 +30,7 @@
 		<param-value>musthave</param-value>
 	</context-param>	
 	<context-param>
-		<param-name>MySQLPwd</param-name>
+		<param-name>MySQLPWD</param-name>
 		<param-value>tiger</param-value>
 	</context-param>	
 	
@@ -53,6 +53,12 @@
 <!-- 		<session-timeout>20</session-timeout> -->
 <!-- 	</session-config> -->
 	
-	
-	
+	<servlet>
+		<servlet-name>HelloServlet</servlet-name>
+		<servlet-class>servlet.HelloServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HelloServlet</servlet-name>
+		<url-pattern>/12Servelet/HelloServlet.do</url-pattern>
+	</servlet-mapping>
 </web-app>
