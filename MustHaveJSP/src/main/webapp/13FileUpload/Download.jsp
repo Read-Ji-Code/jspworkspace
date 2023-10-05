@@ -1,3 +1,6 @@
+<%@page import="java.io.FileInputStream"%>
+<%@page import="java.io.InputStream"%>
+<%@page import="java.io.File"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -10,6 +13,8 @@ try {
 	InputStream inStream = new FileInputStream(file);
 	
 	String client = request.getHeader("User=agent");
+}
+catch (Exception e) {
 }
 %>
 <!DOCTYPE html>
