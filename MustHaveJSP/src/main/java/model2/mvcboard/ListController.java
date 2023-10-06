@@ -31,15 +31,15 @@ public class ListController extends HttpServlet {
 		int totalCount = dao.selectCount(map);
 
 		ServletContext application = getServletContext();
-		int pageSize = Integer.parseInt(application.getInitParameter("posts_per_page"));
-		int blockPage = Integer.parseInt(application.getInitParameter("pages_per_block"));
+		int pageSize = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
+		int blockPage = Integer.parseInt(application.getInitParameter("PAGES_PER_BLOCK"));
 
 		int pageNum = 1;
 		String pageTemp = req.getParameter("pageNum");
 		if (pageTemp != null && !pageTemp.equals(""))
 			pageNum = Integer.parseInt(pageTemp);
 
-		int start = (pageNum - 1) * pageSize + 1;
+		int start = (pageNum - 1) * pageSize;
 		int end = pageNum * pageSize;
 		map.put("start", start);
 		map.put("pageSize", pageSize);

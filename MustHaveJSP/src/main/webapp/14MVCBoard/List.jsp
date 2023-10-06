@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>파일 첨부형 게시판/title>
+<title>파일 첨부형 게시판</title>
 </head>
 <body>
 	<h2>파일 첨부형 게시판 - 목록 보기</h2>
@@ -37,34 +38,27 @@
 				</tr>
 			</c:when>
 			<c:otherwise>
-				<c:forEach items="${ boardLists }" var="row" varStatus="1oop">
+				<c:forEach items="${ boardLists }" var="row" varStatus="loop">
 					<tr align="center">
-						<td>${map.totalCount - (((map.pageNum-1) * map.pageSize) + loop.index) }
-						</td>
-						<td align="left"><a
-							href="../mvcboard/view.do?idx=${row.idx }">&{row.title}</a></td>
+						<td>${map.totalCount - (((map.pageNum-1) * map.pageSize) + loop.index)}	</td>
+						<td align="left"><a href="../mvcboard/view.do?idx=${row.idx }">${row.title}</a></td>
 						<td>${ row.name }</td>
 						<td>${ row.visitcount }</td>
 						<td>${row.postdate }</td>
 						<td><c:if test="${not empty row.ofile }">
-								<a href="../mvcboard/download/do?ofile="
-									${ row.ofile}&sfile=${
-							row.sfile } &idx=${ row.idx }">[Down]</a>
+								<a href="../mvcboard/download/do?ofile="${ row.ofile}&sfile=${row.sfile }&idx=${ row.idx }">[Down]</a>
 							</c:if></td>
 					</tr>
 				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 	</table>
-	
+
 	<table border="1" width="90%">
 		<tr align="center">
-			<td>
-				${ map.pagingImg }
-			/td>
-			<td width="100"><button type ="button"
-				onclick="location.href='../mvcboard/write.do';">글쓰기</button>
-			</td>
+			<td>${ map.pagingImg } /td>
+			<td width="100"><button type="button"
+					onclick="location.href='../mvcboard/write.do';">글쓰기</button></td>
 		</tr>
 	</table>
 

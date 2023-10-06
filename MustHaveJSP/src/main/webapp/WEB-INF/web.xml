@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
-  <display-name>MustHaveJSP</display-name>
-  <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-  </welcome-file-list>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://jakarta.ee/xml/ns/jakartaee"
+	xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+	id="WebApp_ID" version="6.0">
+	<display-name>MustHaveJSP</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+	</welcome-file-list>
 	<context-param>
-	  	<param-name>INIT_PARAM</param-name>
-	  	<param-value>web.xml에 저장한 초기화 매개변수</param-value>
+		<param-name>INIT_PARAM</param-name>
+		<param-value>web.xml에 저장한 초기화 매개변수</param-value>
 	</context-param>
-	
-	
-	
-	
+
+<context-param>
+<param-name>POSTS_PER_PAGE</param-name>
+<param-value>10</param-value>
+</context-param>
+<context-param>
+<param-name>PAGES_PER_BLOCK</param-name>
+<param-value>5</param-value>
+</context-param>
+
+
 	<context-param>
 		<param-name>MySQLDriver</param-name>
 		<param-value>com.mysql.cj.jdbc.Driver</param-value>
@@ -28,32 +38,32 @@
 	<context-param>
 		<param-name>MySQLID</param-name>
 		<param-value>musthave</param-value>
-	</context-param>	
+	</context-param>
 	<context-param>
 		<param-name>MySQLPWD</param-name>
 		<param-value>tiger</param-value>
-	</context-param>	
-	
-	
-	
-<!-- 	<filter> -->
-<!-- 		<filter-name>SetCharEncoding</filter-name> -->
-<!-- 		<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class> -->
-<!-- 		<init-param> -->
-<!-- 			<param-name>encoding</param-name> -->
-<!-- 			<param-value>utf-8</param-value> -->
-<!-- 		</init-param> -->
-<!-- 	</filter> -->
-<!-- 	<filter-mapping> -->
-<!-- 		<filter-name>SetCharEncoding</filter-name> -->
-<!-- 		<url-pattern>/*</url-pattern> -->
-<!-- 	</filter-mapping> -->
-	
-	
-<!-- 	<session-config> -->
-<!-- 		<session-timeout>20</session-timeout> -->
-<!-- 	</session-config> -->
-	
+	</context-param>
+
+
+
+	<!-- <filter> -->
+	<!-- <filter-name>SetCharEncoding</filter-name> -->
+	<!-- <filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class> -->
+	<!-- <init-param> -->
+	<!-- <param-name>encoding</param-name> -->
+	<!-- <param-value>utf-8</param-value> -->
+	<!-- </init-param> -->
+	<!-- </filter> -->
+	<!-- <filter-mapping> -->
+	<!-- <filter-name>SetCharEncoding</filter-name> -->
+	<!-- <url-pattern>/*</url-pattern> -->
+	<!-- </filter-mapping> -->
+
+
+	<!-- <session-config> -->
+	<!-- <session-timeout>20</session-timeout> -->
+	<!-- </session-config> -->
+
 	<servlet>
 		<servlet-name>HelloServlet</servlet-name>
 		<servlet-class>servlet.HelloServlet</servlet-class>
@@ -62,17 +72,21 @@
 		<servlet-name>HelloServlet</servlet-name>
 		<url-pattern>/12Servlet/HelloServlet.do</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-		<servlet-name>MVCBoardWrite</servlet-name></servlet>	
+		<servlet-name>MVCBoardWrite</servlet-name>
 		<servlet-class>model2.mvcboard.WriteController</servlet-class>
 		<multipart-config>
 			<max-file-size>1048576</max-file-size>
 			<max-request-size>10485760</max-request-size>
 		</multipart-config>
 	</servlet>
-	
-	
-	
-	
+	<servlet-mapping>
+		<servlet-name>MVCBoardWrite</servlet-name>
+		<url-pattern>/mvcboard/write.do</url-pattern>
+	</servlet-mapping>
+
+
+
+
 </web-app>
